@@ -29,9 +29,10 @@ std::string encrypt_decrypt(const std::string& source, const std::string& key)
 
   // loop through the source string char by char
   for (size_t i = 0; i < source_length; ++i)
-  { // TODO: student need to change the next line from output[i] = source[i]
+  { // TODO: student need to change the next line from output[i] = source[i], done
     // transform each character based on an xor of the key modded constrained to key length using a mod
-    output[i] = source[i];
+      char xorKey = 'T';
+      output[i] = source[i] ^ xorKey;
   }
 
   // our output length must equal our source length
