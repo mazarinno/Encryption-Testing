@@ -31,7 +31,7 @@ std::string encrypt_decrypt(const std::string& source, const std::string& key)
   for (size_t i = 0; i < source_length; ++i)
   { // TODO: student need to change the next line from output[i] = source[i], done
     // transform each character based on an xor of the key modded constrained to key length using a mod
-      char xorKey = 'T';
+      char xorKey = 'K';
       output[i] = source[i] ^ xorKey;
   }
 
@@ -78,6 +78,14 @@ void save_data_file(const std::string& filename, const std::string& student_name
   //  Line 2: timestamp (yyyy-mm-dd)
   //  Line 3: key used
   //  Line 4+: data
+    std::string filenamepath = "D:" + filename;
+    std::cout << filenamepath;
+    std::ofstream myfile(filenamepath);
+    myfile << student_name << "\n";
+    myfile << "2023 31 03" << "\n";
+    myfile << key << "\n";
+    myfile << data << "\n";
+    myfile.close();
 }
 
 int main()
@@ -96,7 +104,7 @@ int main()
   const std::string encrypted_file_name = "encrypteddatafile.txt";
   const std::string decrypted_file_name = "decrytpteddatafile.txt";
   const std::string source_string = read_file(file_name);
-  const std::string key = "password";
+  const std::string key = "K";
 
   // get the student name from the data file
   const std::string student_name = get_student_name(source_string);
