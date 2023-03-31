@@ -79,7 +79,6 @@ void save_data_file(const std::string& filename, const std::string& student_name
   //  Line 3: key used
   //  Line 4+: data
     std::string filenamepath = "D:" + filename;
-    std::cout << filenamepath;
     std::ofstream myfile(filenamepath);
     myfile << student_name << "\n";
     myfile << "2023 31 03" << "\n";
